@@ -1,9 +1,12 @@
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 import google.generativeai as genai
+from django.conf import settings
+
+api_key = settings.GEMINI_API_KEY
 
 # Configure Gemini AI
-genai.configure(api_key='AIzaSyAkJVCKCggM83aZGAC6jd0Gyr6ysUQdpRk')  # Replace with your Gemini API key
+genai.configure(api_key=api_key)  # Replace with your Gemini API key
 
 @api_view(['POST'])
 def generate_email(request):
